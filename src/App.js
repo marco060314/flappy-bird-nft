@@ -13,17 +13,19 @@ const App = () => {
 			global: false,
 			// if you don't want kaboom to create a canvas and insert under document.body
 			canvas: canvasRef.current,
+      width: 1620,
+      height: 800,
 		})
 
-    k.loadSprite("birdy", "sprites/birdy.png");
-    k.loadSprite("bg", "sprites/bg.png");
-    k.loadSprite("pipe", "sprites/pipe.png");
+    k.loadSprite("birdy", "https://kaboomjs.com/sprites/apple.png");
+    k.loadSprite("bg", "https://kaboomjs.com/sprites/apple.png");
+    k.loadSprite("pipe", "https://kaboomjs.com/sprites/apple.png");
     //k.loadSound("wooosh", "sprites/wooosh.mp3");
     
     k.scene("game", () => {
         
       k.add([
-        k.sprite("bg", {width:k.width(),height:     k.height()})
+        k.sprite("bg", {width:k.width(),height:k.height()})
         ]);
         let score = 0;
         const scoreText = k.add([
@@ -39,8 +41,8 @@ const App = () => {
         ]);
     
         k.onKeyPress("space", () =>{
-          k.play("wooosh");
-            player.jump(400);
+          //k.play("wooosh");
+          player.jump(400);
         });
     
         const PIPE_GAP = 120;
@@ -70,7 +72,7 @@ const App = () => {
             }
         });
         k.onUpdate("pipe", (pipe) => {
-            k.pipe.move(-160, 0);
+            pipe.move(-160, 0);
     
             if (pipe.passed === false && pipe.pos.x < player.pos.x) {
                 pipe.passed = true;
@@ -105,7 +107,7 @@ const App = () => {
         ]);
     
         k.onKeyPress("space", () => {
-            k.CP437_CHARSgo("game");
+            k.go("game");
         });
     });
     
