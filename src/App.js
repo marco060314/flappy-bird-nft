@@ -12,9 +12,10 @@ const App = () => {
 			// if you don't want to import to the global namespace
 			global: false,
 			// if you don't want kaboom to create a canvas and insert under document.body
-			canvas: canvasRef.current,
-      width: 1620,
-      height: 800,
+			//canvas: canvasRef.current, 
+      width: 1920,
+      height:960, 
+      canvas: canvasRef.current,  
 		})
 
     k.loadSprite("birdy", "https://kaboomjs.com/sprites/apple.png");
@@ -117,7 +118,7 @@ const App = () => {
 		// write all your kaboom code here
 
 	}, [])
-  return <canvas ref={canvasRef}></canvas>
+  return <canvas ref={canvasRef} ></canvas>
 	
   return (
     <div className="App">
