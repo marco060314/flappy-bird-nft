@@ -18,7 +18,7 @@ const App = () => {
     k.loadSprite("birdy", "sprites/birdy.png");
     k.loadSprite("bg", "sprites/bg.png");
     k.loadSprite("pipe", "sprites/pipe.png");
-    k.loadSound("wooosh", "sounds/wooosh.mp3");
+    //k.loadSound("wooosh", "sprites/wooosh.mp3");
     
     k.scene("game", () => {
         
@@ -70,9 +70,9 @@ const App = () => {
             }
         });
         k.onUpdate("pipe", (pipe) => {
-            pipe.move(-160, 0);
+            k.pipe.move(-160, 0);
     
-            if (pipe.passed == false && pipe.pos.x < player.pos.x) {
+            if (pipe.passed === false && pipe.pos.x < player.pos.x) {
                 pipe.passed = true;
                 score += 1;
                 scoreText.text = score;
@@ -80,23 +80,23 @@ const App = () => {
         });
     
         player.collides("pipe", () => {
-            go("gameover", score);
+            k.go("gameover", score);
         });
         
-        loop(1.5, () => {
+        k.loop(1.5, () => {
             producePipes();
         });
         
     });
     
     
-    scene("gameover", (score) => {
+    k.scene("gameover", (score) => {
         let highScore = 0;
         if (score > highScore) {
             highScore = score;
         }
-        add([
-            text(
+        k.add([
+            k.text(
                 "game over! \n" 
                 + "score: " + score 
                 + "\nhigh score: " + highScore,
@@ -104,13 +104,13 @@ const App = () => {
             )
         ]);
     
-        onKeyPress("space", () => {
-            go("game");
+        k.onKeyPress("space", () => {
+            k.CP437_CHARSgo("game");
         });
     });
     
     
-    go("game")
+    k.go("game")
 
 		// write all your kaboom code here
 
