@@ -4,7 +4,7 @@ import * as React from "react"
 
 const App = () => {
   const canvasRef = React.useRef(null)
-
+  const [playerImage, setPlayerImage] = React.useState("https://i.postimg.cc/Gp81LFNg/birdy.png")
 	// just make sure this is only run once on mount so your game state is not messed up
 	React.useEffect(() => {
 
@@ -18,12 +18,37 @@ const App = () => {
       canvas: canvasRef.current,  
 		})
 
-    k.loadSprite("birdy", "https://i.postimg.cc/Gp81LFNg/birdy.png");
+    k.loadSprite("player", playerImage);
     k.loadSprite("bg", "https://i.postimg.cc/L8sp7KVp/bg.png");
     k.loadSprite("pipe", "https://i.postimg.cc/Bnw0fYh1/pipe.png");
     //k.loadSound("wooosh", "sprites/wooosh.mp3");
-    
+    k.scene("menu", () => {
+      
+      
+      k.add([
+        k.sprite("bg", {width:k.width(),height:k.height()}),
+        
+        k.text(
+            "Flappy bird NFT \n press space to start game",
+            {size: 45}
+        )
+      ]);
+      const btn = k.add([
+        k.text("button"),
+        k.pos(k.vec2(200, 300)),
+        k.area({ cursor: "pointer", }),
+        k.scale(1),
+        k.origin("center"),
+      ])
+      k.onKeyPress("space", () =>{
+        k.go("game")
+      })
+    })
     k.scene("game", () => {
+      k.onKeyPress("k", () =>{
+        setPlayerImage("https://i.postimg.cc/RZwwJfgS/png-clipart-sprite-animation-2d-computer-graphics-game-character-sprite-game-chibi.png")
+      }
+      );
         
       k.add([
         k.sprite("bg", {width:k.width(),height:k.height()})
@@ -34,7 +59,7 @@ const App = () => {
         ]);
     
         const player = k.add([
-          k.sprite("birdy"),
+          k.sprite("player"),
           k.scale(4),
           k.pos(80,40),
           k.area(),   
@@ -44,7 +69,7 @@ const App = () => {
         k.onKeyPress("space", () =>{
           //k.play("wooosh");
           player.jump(400);
-          player.rotate(90);
+          
         });
     
         const PIPE_GAP = 150;
@@ -116,11 +141,11 @@ const App = () => {
     });
     
     
-    k.go("game")
+    k.go("menu")
 
 		// write all your kaboom code here
 
-	}, [])
+	}, [playerImage])
   return <canvas ref={canvasRef} ></canvas>
 	
   return (
