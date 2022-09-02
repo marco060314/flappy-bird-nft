@@ -18,9 +18,9 @@ const App = () => {
       canvas: canvasRef.current,  
 		})
 
-    k.loadSprite("birdy", "https://kaboomjs.com/sprites/apple.png");
-    k.loadSprite("bg", "https://kaboomjs.com/sprites/apple.png");
-    k.loadSprite("pipe", "https://kaboomjs.com/sprites/apple.png");
+    k.loadSprite("birdy", "https://i.postimg.cc/Gp81LFNg/birdy.png");
+    k.loadSprite("bg", "https://i.postimg.cc/L8sp7KVp/bg.png");
+    k.loadSprite("pipe", "https://i.postimg.cc/Bnw0fYh1/pipe.png");
     //k.loadSound("wooosh", "sprites/wooosh.mp3");
     
     k.scene("game", () => {
@@ -35,24 +35,26 @@ const App = () => {
     
         const player = k.add([
           k.sprite("birdy"),
-          k.scale(2),
+          k.scale(4),
           k.pos(80,40),
-          k.area(),
+          k.area(),   
           k.body(),
         ]);
     
         k.onKeyPress("space", () =>{
           //k.play("wooosh");
           player.jump(400);
+          player.rotate(90);
         });
     
-        const PIPE_GAP = 120;
+        const PIPE_GAP = 150;
         function producePipes(){
-            const offset = k.rand(-50,50);
+            const offset = k.rand(-250,250);
     
             k.add([
               k.sprite("pipe"),
               k.pos(k.width(), k.height()/2 + offset + PIPE_GAP/2),
+              k.scale(3, 4),
                 "pipe",
                 k.area(),
                 {passed: false}
@@ -61,6 +63,7 @@ const App = () => {
             k.add([
               k.sprite("pipe", {flipY: true}),
               k.pos(k.width(), k.height()/2 + offset - PIPE_GAP/2),
+              k.scale(3, 4),
               k.origin("botleft"),
                 "pipe",
                 k.area()
@@ -80,13 +83,13 @@ const App = () => {
                 score += 1;
                 scoreText.text = score;
             }
-        });
+        });   
     
         player.collides("pipe", () => {
             k.go("gameover", score);
         });
         
-        k.loop(1.5, () => {
+        k.loop(2, () => {
             producePipes();
         });
         
