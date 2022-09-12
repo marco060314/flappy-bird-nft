@@ -2,6 +2,8 @@ import './App.css';
 import kaboom from "kaboom"
 import * as React from "react"
 
+
+
 const App = () => {
   const canvasRef = React.useRef(null)
   const [playerImage, setPlayerImage] = React.useState("https://i.postimg.cc/Gp81LFNg/birdy.png")
@@ -34,7 +36,7 @@ const App = () => {
         )
       ]);
       const btn = k.add([
-        k.text("button"),
+        k.text("collect wallet"),
         k.pos(k.vec2(200, 300)),
         k.area({ cursor: "pointer", }),
         k.scale(1),
@@ -146,17 +148,11 @@ const App = () => {
 		// write all your kaboom code here
 
 	}, [playerImage])
-  return <canvas ref={canvasRef} ></canvas>
-	
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>flappybird nft</h1>
-      </header>
-      <canvas ref={canvasRef}></canvas>
-    </div>
+        <canvas ref={canvasRef} ></canvas>
+
   );
-  
+
 }
 
 export default App;
