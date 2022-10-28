@@ -2,7 +2,7 @@ import "./App.css";
 import kaboom from "kaboom";
 import * as React from "react";
 import Menu from "./Menu";
-import EndMenu from "./EndMenu";
+import GameOverMenu from "./GameOverMenu";
 
 const GameState = {
   Menu: "Menu",
@@ -32,9 +32,8 @@ const App = () => {
       // if you don't want to import to the global namespace
       global: false,
       // if you don't want kaboom to create a canvas and insert under document.body
-      //canvas: canvasRef.current,
-      //width: 1920,
-      //height: 960,
+      width: 1920,
+      height: 860,
       canvas: canvasRef.current,
     });
     k.loadSprite("player", playerNftUrl);
@@ -51,11 +50,10 @@ const App = () => {
     k.scene("game", () => {
       k.add([k.sprite("bg", { width: k.width(), height: k.height() })]);
       let kscore = 0;
-      const scoreText = k.add([k.text(kscore, { size: 50 })]);
+      const scoreText = k.add([k.text(kscore, { size: 50 }), k.pos(860, 30)]);
 
       const player = k.add([
-        k.sprite("player"),
-        k.scale(0.1),
+        k.sprite("player", { width: 50, height: 50 }),
         k.pos(80, 40),
         k.area(),
         k.body(),
@@ -117,8 +115,6 @@ const App = () => {
 
     k.go("menu");
     setCurrentGameState(GameState.Menu);
-
-    // write all your kaboom code here
   }, [playerNftUrl]);
   return (
     <>
@@ -126,12 +122,12 @@ const App = () => {
         <Menu
           playerNftUrl={playerNftUrl}
           setPlayerNftUrl={(nftUrl) => setPlayerNftUrl(nftUrl)}
-        ></Menu>
+        />
       )}
       {currentGameState === GameState.GameOver && (
-        <EndMenu score={score} highScore={highScore}></EndMenu>
+        <GameOverMenu score={score} highScore={highScore} />
       )}
-      {/* {playerNftUrl && <canvas ref={canvasRef}></canvas>} */}
+      <canvas ref={canvasRef} />
     </>
   );
 };
