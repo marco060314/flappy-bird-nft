@@ -24,6 +24,7 @@ const App = () => {
     if (newScore > highScore) {
       setHighScore(newScore);
     }
+    console.log("gameover");
     setCurrentGameState(GameState.GameOver);
   };
   // just make sure this is only run once on mount so your game state is not messed up
@@ -90,6 +91,7 @@ const App = () => {
       player.onUpdate(() => {
         if (player.pos.y > k.height() + 30 || player.pos.y < -30) {
           k.go("menu");
+          console.log("gamestate");
           onGameOver(kscore);
         }
       });
@@ -103,8 +105,9 @@ const App = () => {
         }
       });
 
-      player.collides("pipe", () => {
+      player.onCollide("pipe", () => {
         k.go("menu");
+        console.log("collides");
         onGameOver(kscore);
       });
 
@@ -114,8 +117,9 @@ const App = () => {
     });
 
     k.go("menu");
-    setCurrentGameState(GameState.Menu);
+    //setCurrentGameState(GameState.Menu);
   }, [playerNftUrl]);
+  console.log(currentGameState);
   return (
     <>
       {currentGameState === GameState.Menu && (
@@ -125,7 +129,11 @@ const App = () => {
         />
       )}
       {currentGameState === GameState.GameOver && (
-        <GameOverMenu score={score} highScore={highScore} />
+        <GameOverMenu
+          score={score}
+          highScore={highScore}
+          onShowMenu={() => setCurrentGameState(GameState.Menu)}
+        />
       )}
       <canvas ref={canvasRef} />
     </>

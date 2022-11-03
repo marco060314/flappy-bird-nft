@@ -40,6 +40,7 @@ const SelectNftMenu = ({ onSelectNft }) => {
 
   return (
     <div
+      id="box1"
       class="a"
       style={{
         backgroundColor: "white",
@@ -57,7 +58,6 @@ const SelectNftMenu = ({ onSelectNft }) => {
     >
       <h1 text-align="center">menu --- select your NFT</h1>
       <div style={{ overflowY: "scroll" }}>
-        {playerNFTs.length === 0 && <h2>no nfts found</h2>}
         {playerNFTs.map((nftImageUrl) => (
           <img
             onClick={() => selectNFT(nftImageUrl)}
@@ -67,6 +67,7 @@ const SelectNftMenu = ({ onSelectNft }) => {
             alt="nfts"
           />
         ))}
+        {playerNFTs.length === 0 && <h2>no nfts found</h2>}
       </div>
     </div>
   );

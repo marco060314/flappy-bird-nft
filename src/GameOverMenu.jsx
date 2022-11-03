@@ -1,9 +1,11 @@
 import "./App.css";
 import * as React from "react";
+import "./Menu.jsx";
 
-const GameOverMenu = ({ score, highScore }) => {
+const GameOverMenu = ({ score, highScore, onShowMenu }) => {
   return (
     <div
+      id="box1"
       class="a"
       style={{
         backgroundColor: "white",
@@ -23,6 +25,9 @@ const GameOverMenu = ({ score, highScore }) => {
       <h1>score: {score}</h1>
       <h1>high score: {highScore}</h1>
       <h3>Press space to play again</h3>
+      <button class="button button2" onClick={onShowMenu}>
+        Go Back to Main Menu
+      </button>
     </div>
   );
 };

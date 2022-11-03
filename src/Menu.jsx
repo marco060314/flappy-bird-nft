@@ -20,6 +20,7 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl }) => {
   }
   return (
     <div
+      id="box1"
       class="a"
       style={{
         backgroundColor: "white",
@@ -37,12 +38,25 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl }) => {
     >
       <h1 text-align="center">menu --- select your NFT</h1>
       {address && (
-        <button onClick={() => setShowSelectNftMenu(true)}>select NFT</button>
+        <button
+          class="button button2"
+          onClick={() => setShowSelectNftMenu(true)}
+        >
+          select NFT
+        </button>
       )}
       <ConnectButton />
+      <h3>Current NFT</h3>
       {playerNftUrl && (
-        <img src={playerNftUrl} width="150" height="auto" alt="nfts" />
+        <img
+          class="center"
+          src={playerNftUrl}
+          width="50"
+          height="50"
+          alt="nfts"
+        />
       )}
+      <h1>PRESS SPACE TO PLAY</h1>
     </div>
   );
 };
