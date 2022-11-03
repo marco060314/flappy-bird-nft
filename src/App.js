@@ -33,8 +33,7 @@ const App = () => {
       // if you don't want to import to the global namespace
       global: false,
       // if you don't want kaboom to create a canvas and insert under document.body
-      width: 1920,
-      height: 860,
+
       canvas: canvasRef.current,
     });
     k.loadSprite("player", playerNftUrl);
@@ -51,11 +50,15 @@ const App = () => {
     k.scene("game", () => {
       k.add([k.sprite("bg", { width: k.width(), height: k.height() })]);
       let kscore = 0;
-      const scoreText = k.add([k.text(kscore, { size: 50 }), k.pos(860, 30)]);
+      const scoreText = k.add([
+        k.text(kscore, { size: 50 }),
+        k.pos(k.width() / 2, 30),
+        k.z(10),
+      ]);
 
       const player = k.add([
         k.sprite("player", { width: 50, height: 50 }),
-        k.pos(80, 40),
+        k.pos(k.width() / 5, k.height() / 5),
         k.area(),
         k.body(),
       ]);
@@ -117,7 +120,6 @@ const App = () => {
     });
 
     k.go("menu");
-    //setCurrentGameState(GameState.Menu);
   }, [playerNftUrl]);
   console.log(currentGameState);
   return (
@@ -135,7 +137,7 @@ const App = () => {
           onShowMenu={() => setCurrentGameState(GameState.Menu)}
         />
       )}
-      <canvas ref={canvasRef} />
+      <canvas ref={canvasRef} style={{ width: "100vw", height: "100vh" }} />
     </>
   );
 };
