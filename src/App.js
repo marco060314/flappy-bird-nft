@@ -24,11 +24,13 @@ const App = () => {
     if (newScore > highScore) {
       setHighScore(newScore);
     }
-    console.log("gameover");
+    console.log("called");
     setCurrentGameState(GameState.GameOver);
   };
+  var producePipeTime = 0;
   // just make sure this is only run once on mount so your game state is not messed up
   React.useEffect(() => {
+    console.log("start of useeffect");
     const k = kaboom({
       // if you don't want to import to the global namespace
       global: false,
@@ -36,6 +38,8 @@ const App = () => {
 
       canvas: canvasRef.current,
     });
+    k.destroyAll("player");
+    k.destroyAll("pipe");
     k.loadSprite("player", playerNftUrl);
     k.loadSprite("bg", "https://i.postimg.cc/L8sp7KVp/bg.png");
     k.loadSprite("pipe", "https://i.postimg.cc/Bnw0fYh1/pipe.png");
@@ -70,6 +74,12 @@ const App = () => {
 
       const PIPE_GAP = 150;
       function producePipes() {
+        console.log(Date.now() - producePipeTime);
+        if (Date.now() - producePipeTime < 1000) {
+          return;
+        }
+        console.log("produce pipes", Date.now());
+        producePipeTime = Date.now();
         const offset = k.rand(-250, 250);
 
         k.add([
