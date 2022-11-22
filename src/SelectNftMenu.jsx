@@ -16,13 +16,14 @@ const SelectNftMenu = ({ onSelectNft }) => {
         method: "GET",
         headers: {
           Accept: "application/json",
-          "X-API-Key": "d0a4ff8d922e41e29454b86e0426d0f6",
+          //"X-API-Key": "d0a4ff8d922e41e29454b86e0426d0f6",
         },
       };
       const res = await fetch(
         `https://api.opensea.io/api/v1/assets?owner=${address}&limit=30`,
         options
       );
+      console.log(res);
       const nftData = await res.json();
       const nftImages = nftData.assets
         .map((nft) => nft.image_url)
