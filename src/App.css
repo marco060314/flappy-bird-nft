@@ -12,10 +12,6 @@
   color: white;
 }
 
-div.a {
-  text-align: center;
-}
-
 .button {
   border: none;
   color: white;
@@ -37,9 +33,6 @@ div.a {
 .button2:hover {
   background-color: #008cba;
   color: white;
-}
-#box1 {
-  border-radius: 25px;
 }
 .center {
   display: block;

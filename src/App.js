@@ -1,42 +1,54 @@
-import "./App.css";
-import kaboom from "kaboom";
-import * as React from "react";
-import Menu from "./Menu";
-import GameOverMenu from "./GameOverMenu";
-import Game from "./Game"
+import './App.css'
+import kaboom from 'kaboom'
+import * as React from 'react'
+import Menu from './Menu'
+import GameOverMenu from './GameOverMenu'
+import Game from './Game'
 
 const GameState = {
-  Menu: "Menu",
-  Game: "Game",
-  GameOver: "GameOver",
-};
+  Menu: 'Menu',
+  Game: 'Game',
+  GameOver: 'GameOver',
+}
 const App = () => {
   const [playerNftUrl, setPlayerNftUrl] = React.useState(
-    "https://i.postimg.cc/Bnw0fYh1/pipe.png"
-  );
-  const canvasRef = React.useRef(null);
-  const [currentGameState, setCurrentGameState] = React.useState(
-    GameState.Menu
-  );
-  const [score, setScore] = React.useState(0);
-  const [highScore, setHighScore] = React.useState(0);
-  const onGameOver = (newScore) => {
-    setScore(newScore);
-    if (newScore > highScore) {
-      setHighScore(newScore);
-    }
-    console.log("called");
-    setCurrentGameState(GameState.GameOver);
-  };
+    'https://i.postimg.cc/Bnw0fYh1/pipe.png'
+  )
+  const canvasRef = React.useRef(null)
+  const [currentGameState, setCurrentGameState] = React.useState(GameState.Menu)
+  const [score, setScore] = React.useState(0)
+  const [highScore, setHighScore] = React.useState(0)
   return (
-    <>
-    {currentGameState === GameState.Game && (
-      <Game playerNftUrl={playerNftUrl} />//score={() => setScore()}/>  <canvas ref={canvasRef} style={{ width: "100vw", height: "100vh" }} />
-    )}
+    <div
+      style={{
+        //backgroundColor: 'black',
+        //display: 'flex',
+        width: '100vw',
+        height: '100vh',
+        backgroundImage: 'url(https://i.postimg.cc/L8sp7KVp/bg.png)',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 100%',
+      }}
+    >
+      {currentGameState === GameState.Game && (
+        <Game
+          playerNftUrl={playerNftUrl}
+          onGameOver={(newScore) => {
+            setScore(newScore)
+            if (newScore > highScore) {
+              setHighScore(newScore)
+            }
+            setCurrentGameState(GameState.GameOver)
+          }}
+        />
+      )}
       {currentGameState === GameState.Menu && (
         <Menu
           playerNftUrl={playerNftUrl}
           setPlayerNftUrl={(nftUrl) => setPlayerNftUrl(nftUrl)}
+          onPressStart={() => {
+            setCurrentGameState(GameState.Game)
+          }}
         />
       )}
       {currentGameState === GameState.GameOver && (
@@ -46,8 +58,8 @@ const App = () => {
           onShowMenu={() => setCurrentGameState(GameState.Menu)}
         />
       )}
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default App;
+export default App
