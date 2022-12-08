@@ -41,6 +41,10 @@ const Game = ({ playerNftUrl, onGameOver }) => {
         //k.play("wooosh");
         player.jump(400)
       })
+      k.onMousePress(() => {
+        //k.play("wooosh");
+        player.jump(400)
+      })
 
       const PIPE_GAP = 150
       function producePipes() {
