@@ -42,8 +42,8 @@ const Game = ({ playerNftUrl, onGameOver }) => {
         player.jump(400)
       })
       k.onMousePress(() => {
-        k.play('wooosh')
-        //  player.jump(400)
+        //k.play('wooosh')
+        player.jump(400)
       })
       k.onTouchStart(() => {
         //k.play("wooosh");
