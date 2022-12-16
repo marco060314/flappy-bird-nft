@@ -21,45 +21,31 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl, onPressStart }) => {
     )
   }
   return (
-    <div
-      style={{
-        borderRadius: '25px',
-        textAlign: 'center',
-        backgroundColor: 'white',
-        position: 'absolute',
-        margin: 'auto',
-        top: 0,
-        bottom: 0,
-        right: 0,
-        left: 0,
-        width: '60%',
-        height: '80%',
-        display: 'flex',
-        flexDirection: 'column',
-        //backgroundImage: 'url(https://i.postimg.cc/L8sp7KVp/bg.png)',
-      }}
-    >
-      <h1 text-align="center">menu --- select your NFT</h1>
-      {address && (
-        <button
-          class="button button2"
-          onClick={() => setShowSelectNftMenu(true)}
-        >
-          select NFT
-        </button>
-      )}
-      <ConnectButton />
-      <h3>Current NFT</h3>
-      {playerNftUrl && (
-        <img
-          class="center"
-          src={playerNftUrl}
-          width="50"
-          height="50"
-          alt="nfts"
-        />
-      )}
-      <button class="button button2" onClick={onPressStart}>
+    <div class="absolute bg-white m-auto top-0 bottom-0 right-0 left-0 w-3/5 h-4/5 flex flex-col rounded-3xl items-center justify-around drop-shadow-2xl">
+      <div class="absolute top-5 right-5 h-auto w-auto ...">
+        <ConnectButton />
+      </div>
+      <h1 class="text-5xl font-semibold">FLAPPY NFT</h1>
+
+      <div class="flex flex-col bg-slate-200 rounded-2xl p-5 gap-3 drop-shadow-2xl">
+        {!address && <h1>Connect Wallet to select NFT</h1>}
+        {playerNftUrl && address && (
+          <img
+            class="w-16 md:w-48 lg:w-80 xl:w-120 aspect-square object-contain"
+            src={playerNftUrl}
+            alt="nfts"
+          />
+        )}
+        {address && (
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 border border-blue-500 hover:border-black rounded-lg"
+            onClick={() => setShowSelectNftMenu(true)}
+          >
+            select NFT
+          </button>
+        )}
+      </div>
+      <button class="w-16 md:w-48 lg:w-80 xl:w-120 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-xl">
         start game
       </button>
     </div>
