@@ -56,6 +56,7 @@ const App = () => {
           score={score}
           highScore={highScore}
           onShowMenu={() => setCurrentGameState(GameState.Menu)}
+          onPressStart={() => setCurrentGameState(GameState.Game)}
         />
       )}
     </div>

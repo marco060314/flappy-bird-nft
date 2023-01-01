@@ -45,9 +45,23 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl, onPressStart }) => {
           </button>
         )}
       </div>
-      <button class="w-16 md:w-48 lg:w-80 xl:w-120 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-xl">
-        start game
-      </button>
+      {!address && (
+        <button
+          class="w-16 md:w-48 lg:w-80 xl:w-120 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-xl"
+          onClick={() => onPressStart()}
+        >
+          Try playing without NFT
+        </button>
+      )}
+
+      {address && (
+        <button
+          class="w-16 md:w-48 lg:w-80 xl:w-120 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-xl"
+          onClick={() => onPressStart()}
+        >
+          start game
+        </button>
+      )}
     </div>
   )
 }
