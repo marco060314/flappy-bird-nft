@@ -55,6 +55,7 @@ const App = () => {
         <GameOverMenu
           score={score}
           highScore={highScore}
+          playerNftUrl={playerNftUrl}
           onShowMenu={() => setCurrentGameState(GameState.Menu)}
           onPressStart={() => setCurrentGameState(GameState.Game)}
         />
