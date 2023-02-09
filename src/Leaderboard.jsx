@@ -4,6 +4,7 @@ import './Menu.jsx'
 import { db } from './firebase.js'
 import {
   getDatabase,
+  get,
   ref,
   set,
   query,
@@ -17,18 +18,26 @@ const Leaderboard = ({}) => {
   const [leaderboard, setLeaderboard] = React.useState([])
   useEffect(() => {
     const leaderboardRef = query(ref(db, 'leaderboard'), orderByChild('score'))
+
     onValue(leaderboardRef, (snapshot) => {
-      const data = snapshot.val()
-      console.log(data)
-      setLeaderboard(Object.values(data))
+      const sortedLeaderboard = []
+      snapshot.forEach(function (child) {
+        sortedLeaderboard.unshift(child.val())
+      })
+      setLeaderboard(sortedLeaderboard)
     })
   }, [])
-  console.log(leaderboard)
   return (
     <div class="">
-      <h1 class="text-6xl font-semibold">Leaderboard</h1>
+      <h1 class="text-4xl font-semibold">Leaderboard</h1>
+      <div class="flex-row flex justify-between border">
+        <p class="font-semibold">Rank</p>
+        <p class="font-semibold">Address</p>
+        <p class="font-semibold">Score</p>
+        <p class="font-semibold">NFT</p>
+      </div>
       {leaderboard.map((player, index) => (
-        <div class="flex-row flex">
+        <div key={player.address} class="flex-row flex justify-between border">
           <p>{index + 1}</p>
           <p>
             {player.address.slice(0, 4)}....{player.address.slice(-4)}
