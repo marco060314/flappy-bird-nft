@@ -2,7 +2,7 @@ import './App.css'
 import * as React from 'react'
 import './Menu.jsx'
 import { db } from './firebase.js'
-import { getDatabase, ref, set, get, child } from 'firebase/database'
+import { getDatabase, ref, set, get, child, update } from 'firebase/database'
 import { useAccount } from 'wagmi'
 import Leaderboard from './Leaderboard'
 import { useEffect } from 'react'
@@ -22,9 +22,12 @@ const GameOverMenu = ({
         if (snapshot.exists()) {
           if (snapshot.val().score < score) {
             set(playerRef, {
+              address: address,
               score: score,
+              nfturl: playerNftUrl,
             })
           }
+          highScore = snapshot.val().score
         } else {
           console.log('No data available')
           set(playerRef, {
@@ -32,6 +35,7 @@ const GameOverMenu = ({
             score: score,
             nfturl: playerNftUrl,
           })
+          highScore = score
         }
       })
       .catch((error) => {
@@ -45,7 +49,7 @@ const GameOverMenu = ({
         <h1 class="text-4xl font-semibold">Score: {score}</h1>
         <h1 class="text-4xl font-semibold">High Score: {highScore}</h1>
       </div>
-      <Leaderboard />
+      <Leaderboard address={address} />
 
       <div class="space-x-3">
         <button

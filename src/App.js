@@ -12,7 +12,7 @@ const GameState = {
 }
 const App = () => {
   const [playerNftUrl, setPlayerNftUrl] = React.useState(
-    'https://i.postimg.cc/Bnw0fYh1/pipe.png'
+    'https://i.postimg.cc/hPTxj27d/flap.png'
   )
   const canvasRef = React.useRef(null)
   const [currentGameState, setCurrentGameState] = React.useState(GameState.Menu)
