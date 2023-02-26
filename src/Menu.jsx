@@ -3,7 +3,6 @@ import * as React from 'react'
 import SelectNftMenu from './SelectNftMenu'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { useAccount } from 'wagmi'
-import Game from './Game'
 
 const Menu = ({ playerNftUrl, setPlayerNftUrl, onPressStart }) => {
   const { address, isConnecting, isDisconnected } = useAccount()
@@ -13,7 +12,6 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl, onPressStart }) => {
     return (
       <SelectNftMenu
         onSelectNft={(selectedNftUrl) => {
-          console.log(selectedNftUrl)
           setShowSelectNftMenu(false)
           setPlayerNftUrl(selectedNftUrl)
         }}

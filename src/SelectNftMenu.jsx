@@ -4,7 +4,6 @@ import { useAccount } from 'wagmi'
 
 const SelectNftMenu = ({ onSelectNft }) => {
   const { address, isConnecting, isDisconnected } = useAccount()
-  console.log(address + 'a:' + isConnecting + ' ' + isDisconnected)
   const [playerImage, setPlayerImage] = React.useState(
     'https://i.postimg.cc/Gp81LFNg/birdy.png'
   )
@@ -23,7 +22,6 @@ const SelectNftMenu = ({ onSelectNft }) => {
         `https://api.opensea.io/api/v1/assets?owner=${address}&limit=30`,
         options
       )
-      console.log(res)
       const nftData = await res.json()
       const nftImages = nftData.assets
         .map((nft) => nft.image_url)

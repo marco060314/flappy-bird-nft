@@ -1,5 +1,4 @@
 import './App.css'
-import kaboom from 'kaboom'
 import * as React from 'react'
 import Menu from './Menu'
 import GameOverMenu from './GameOverMenu'
@@ -14,10 +13,9 @@ const App = () => {
   const [playerNftUrl, setPlayerNftUrl] = React.useState(
     'https://i.postimg.cc/hPTxj27d/flap.png'
   )
-  const canvasRef = React.useRef(null)
+
   const [currentGameState, setCurrentGameState] = React.useState(GameState.Menu)
   const [score, setScore] = React.useState(0)
-  const [highScore, setHighScore] = React.useState(0)
   return (
     <div
       style={{
@@ -35,9 +33,6 @@ const App = () => {
           playerNftUrl={playerNftUrl}
           onGameOver={(newScore) => {
             setScore(newScore)
-            if (newScore > highScore) {
-              setHighScore(newScore)
-            }
             setCurrentGameState(GameState.GameOver)
           }}
         />
@@ -54,7 +49,6 @@ const App = () => {
       {currentGameState === GameState.GameOver && (
         <GameOverMenu
           score={score}
-          highScore={highScore}
           playerNftUrl={playerNftUrl}
           onShowMenu={() => setCurrentGameState(GameState.Menu)}
           onPressStart={() => setCurrentGameState(GameState.Game)}

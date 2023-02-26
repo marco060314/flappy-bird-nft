@@ -6,7 +6,6 @@ const Game = ({ playerNftUrl, onGameOver }) => {
   const canvasRef = React.useRef(null)
   // just make sure this is only run once on mount so your game state is not messed up
   React.useEffect(() => {
-    console.log('start of useeffect')
     const k = kaboom({
       // if you don't want to import to the global namespace
       global: false,
@@ -14,7 +13,6 @@ const Game = ({ playerNftUrl, onGameOver }) => {
 
       canvas: canvasRef.current,
     })
-    console.log('playernft', playerNftUrl)
     k.loadSprite('player', playerNftUrl)
     k.loadSprite('bg', 'https://i.postimg.cc/L8sp7KVp/bg.png')
     k.loadSprite('pipe', 'https://i.postimg.cc/Bnw0fYh1/pipe.png')
