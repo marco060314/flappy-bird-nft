@@ -48,7 +48,7 @@ const Game = ({ playerNftUrl, onGameOver }) => {
         player.jump(400)
       })
 
-      const PIPE_GAP = 500
+      const PIPE_GAP = 200
       function producePipes() {
         const offset = k.rand(-250, 250)
 
