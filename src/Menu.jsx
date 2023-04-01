@@ -24,6 +24,7 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl, onPressStart }) => {
         <ConnectButton />
       </div>
       <h1 class="text-5xl font-semibold">FLAPPY NFT</h1>
+      <h3 class="text-xl ">space/click to jump</h3>
 
       <div class="flex flex-col bg-slate-200 rounded-2xl p-5 gap-3 drop-shadow-2xl">
         {!address && <h1>Connect Wallet to select NFT</h1>}
