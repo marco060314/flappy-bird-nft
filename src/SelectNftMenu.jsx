@@ -3,11 +3,8 @@ import * as React from 'react'
 import { useAccount } from 'wagmi'
 
 const SelectNftMenu = ({ onSelectNft }) => {
-  const { address, isConnecting, isDisconnected } = useAccount()
-  const [playerImage, setPlayerImage] = React.useState(
-    'https://i.postimg.cc/Gp81LFNg/birdy.png'
-  )
-  const [playerNFTs, setPlayerNFT] = React.useState([])
+  const { address } = useAccount()
+  const [playerNFTs, setPlayerNFTs] = React.useState([])
 
   React.useEffect(() => {
     async function fetchNFTs() {
@@ -15,7 +12,6 @@ const SelectNftMenu = ({ onSelectNft }) => {
         method: 'GET',
         headers: {
           Accept: 'application/json',
-          //"X-API-Key": "d0a4ff8d922e41e29454b86e0426d0f6",
         },
       }
       const res = await fetch(
@@ -27,13 +23,12 @@ const SelectNftMenu = ({ onSelectNft }) => {
         .map((nft) => nft.image_url)
         .filter(Boolean)
 
-      setPlayerNFT(nftImages)
+      setPlayerNFTs(nftImages)
     }
     fetchNFTs()
   }, [address])
 
   const selectNFT = (nftImageUrl) => {
-    setPlayerImage({ nftImageUrl })
     onSelectNft(nftImageUrl)
   }
 
