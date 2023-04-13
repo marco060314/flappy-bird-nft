@@ -12,7 +12,7 @@
     "kaboom": "^2000.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.1",
     "wagmi": "^0.6.7",
     "web-vitals": "^2.1.4"
   },
@@ -43,6 +43,15 @@
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.20",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+      "buffer": "npm:buffer@^6.0.3",
+      "crypto": "npm:crypto-browserify@^3.12.0",
+      "http": "npm:stream-http@^3.2.0",
+      "https": "npm:https-browserify@^1.0.0",
+      "stream": "npm:stream-browserify@^3.0.0",
+      "util": "npm:util@^0.12.5",
+      "zlib": "npm:browserify-zlib@^0.2.0"
+  
   }
+  
 }
