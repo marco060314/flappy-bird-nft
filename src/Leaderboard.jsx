@@ -30,7 +30,7 @@ const Leaderboard = ({ address }) => {
   return (
     <div class="">
       <h1 class="text-center text-4xl font-semibold py-3">Leaderboard</h1>
-      <table>
+      <table class="table-auto">
         <thead class="flex-row flex border-2 px-2">
           <th class="font-semibold">Rank</th>
           <th class="font-semibold">Address</th>
