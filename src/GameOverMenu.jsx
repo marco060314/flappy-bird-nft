@@ -2,7 +2,7 @@ import './App.css'
 import * as React from 'react'
 import './Menu.jsx'
 import { db } from './firebase.js'
-import { getDatabase, ref, set, get, child, update } from 'firebase/database'
+import { ref, set, get } from 'firebase/database'
 import { useAccount } from 'wagmi'
 import Leaderboard from './Leaderboard'
 import { useEffect } from 'react'
@@ -10,6 +10,7 @@ import { useEffect } from 'react'
 const GameOverMenu = ({ playerNftUrl, score, onShowMenu, onPressStart }) => {
   const [isHighScore, setIsHighScore] = React.useState(null)
   const { address } = useAccount()
+
   useEffect(() => {
     const playerRef = ref(db, 'leaderboard/' + address)
     get(playerRef)
@@ -35,6 +36,7 @@ const GameOverMenu = ({ playerNftUrl, score, onShowMenu, onPressStart }) => {
         console.error(error)
       })
   }, [address, playerNftUrl, score])
+
   return (
     <div class="absolute bg-white m-auto top-0 bottom-0 right-0 left-0 w-3/5 h-4/5 flex flex-col rounded-3xl items-center justify-around drop-shadow-2xl">
       <h1 class="text-6xl font-semibold">Game Over</h1>
