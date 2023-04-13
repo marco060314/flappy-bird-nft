@@ -4,6 +4,8 @@ import Menu from './Menu'
 import GameOverMenu from './GameOverMenu'
 import Game from './Game'
 
+window.Buffer = window.Buffer || require('buffer').Buffer
+
 const GameState = {
   Menu: 'Menu',
   Game: 'Game',
