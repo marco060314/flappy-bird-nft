@@ -11,18 +11,17 @@ const GameState = {
   Game: 'Game',
   GameOver: 'GameOver',
 }
+
 const App = () => {
   const [playerNftUrl, setPlayerNftUrl] = React.useState(
     'https://i.postimg.cc/hPTxj27d/flap.png'
   )
-
   const [currentGameState, setCurrentGameState] = React.useState(GameState.Menu)
   const [score, setScore] = React.useState(0)
+
   return (
     <div
       style={{
-        //backgroundColor: 'black',
-        //display: 'flex',
         width: '100vw',
         height: '100vh',
         backgroundImage: 'url(https://i.postimg.cc/L8sp7KVp/bg.png)',

@@ -7,16 +7,12 @@ const Game = ({ playerNftUrl, onGameOver }) => {
   // just make sure this is only run once on mount so your game state is not messed up
   React.useEffect(() => {
     const k = kaboom({
-      // if you don't want to import to the global namespace
       global: false,
-      // if you don't want kaboom to create a canvas and insert under document.body
-
       canvas: canvasRef.current,
     })
     k.loadSprite('player', playerNftUrl)
     k.loadSprite('bg', 'https://i.postimg.cc/L8sp7KVp/bg.png')
     k.loadSprite('pipe', 'https://i.postimg.cc/Bnw0fYh1/pipe.png')
-    //k.loadSound("wooosh", "sprites/wooosh.mp3");
     k.scene('gameover', () => {
       k.add([k.sprite('bg', { width: k.width(), height: k.height() })])
     })
@@ -36,15 +32,12 @@ const Game = ({ playerNftUrl, onGameOver }) => {
         k.body(),
       ])
       k.onKeyPress('space', () => {
-        //k.play("wooosh");
         player.jump(400)
       })
       k.onMousePress(() => {
-        //k.play('wooosh')
         player.jump(400)
       })
       k.onTouchStart(() => {
-        //k.play("wooosh");
         player.jump(400)
       })
 
