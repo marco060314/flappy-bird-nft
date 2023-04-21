@@ -48,12 +48,14 @@ const App = () => {
         />
       )}
       {currentGameState === GameState.GameOver && (
-        <GameOverMenu
-          score={score}
-          playerNftUrl={playerNftUrl}
-          onShowMenu={() => setCurrentGameState(GameState.Menu)}
-          onPressStart={() => setCurrentGameState(GameState.Game)}
-        />
+        <div class="p-6 absolute m-50 top-0 bottom-0 right-0 left-0 items-center justify-center flex">
+          <GameOverMenu
+            score={score}
+            playerNftUrl={playerNftUrl}
+            onShowMenu={() => setCurrentGameState(GameState.Menu)}
+            onPressStart={() => setCurrentGameState(GameState.Game)}
+          />
+        </div>
       )}
     </div>
   )

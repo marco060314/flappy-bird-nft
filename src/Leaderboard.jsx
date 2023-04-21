@@ -29,30 +29,32 @@ const Leaderboard = ({ address }) => {
 
   return (
     <div class="">
-      <h1 class="text-center text-s lg:text-xl xl:text-xl md:text-xl font-semibold py-3">
+      <h1 class="text-center text-2xl lg:text-4xl xl:text-4xl md:text-4xl font-semibold py-3">
         Leaderboard
       </h1>
-      <table class="table-auto">
-        <thead class="flex-row flex border-2 px-2">
+      <table class="border-separate border-spacing-2 border border-slate-200">
+        <thead class="border-2 px-2">
           <th class="font-semibold">Rank</th>
           <th class="font-semibold">Address</th>
           <th class="font-semibold">Score</th>
           <th class="font-semibold">NFT</th>
         </thead>
-        {leaderboard.slice(0, MAX_LEADERBOARD_SCORES).map((player, index) => (
-          <LeaderboardItem
-            player={player}
-            isCurrentPlayer={player.address === address}
-            rank={index + 1}
-          />
-        ))}
-        {playerRank > MAX_LEADERBOARD_SCORES - 1 && (
-          <LeaderboardItem
-            player={leaderboard[playerRank]}
-            isCurrentPlayer={true}
-            rank={playerRank + 1}
-          />
-        )}
+        <tbody>
+          {leaderboard.slice(0, MAX_LEADERBOARD_SCORES).map((player, index) => (
+            <LeaderboardItem
+              player={player}
+              isCurrentPlayer={player.address === address}
+              rank={index + 1}
+            />
+          ))}
+          {playerRank > MAX_LEADERBOARD_SCORES - 1 && (
+            <LeaderboardItem
+              player={leaderboard[playerRank]}
+              isCurrentPlayer={true}
+              rank={playerRank + 1}
+            />
+          )}
+        </tbody>
       </table>
     </div>
   )
@@ -67,8 +69,8 @@ const LeaderboardItem = ({ player, isCurrentPlayer, rank }) => {
   return (
     <tr
       key={player.address}
-      class={`items-center pl-3 text-center gap-x-10 text-s lg:text-xl xl:text-xl md:text-xl flex-row flex border-slate-200 border-x-2 border-b-2 ${
-        isCurrentPlayer ? ' font-bold bg-slate-200' : ''
+      class={`text-s lg:text-xl xl:text-xl md:text-xl  ${
+        isCurrentPlayer ? ' font-bold' : ''
       }`}
     >
       <td>{rank}</td>

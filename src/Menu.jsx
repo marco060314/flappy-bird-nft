@@ -21,8 +21,8 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl, onPressStart }) => {
 
   return (
     <div class="absolute bg-white m-auto top-0 bottom-0 right-0 left-0 w-4/5 h-5/6 flex flex-col rounded-3xl items-center justify-around drop-shadow-2xl lg:w-3/5 xl:w-3/5 md:-3/5">
-      <div class="flex-col md:flex-row lg:flex-row xl:flex-row">
-        <ConnectButton class="items-right" />
+      <div class="justify-center flex-col items-center bg-red-200">
+        <ConnectButton />
         <h1 class="text-5xl font-bold">flappy nft</h1>
       </div>
 
@@ -50,7 +50,7 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl, onPressStart }) => {
       </div>
       {!address && (
         <button
-          class="w-24 md:w-48 lg:w-80 xl:w-120 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-s lg:text-xl xl:text-xl md:text-xl"
+          class="w-40 md:w-48 lg:w-80 xl:w-120 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-s lg:text-xl xl:text-xl md:text-xl"
           onClick={() => onPressStart()}
         >
           Try playing without NFT
@@ -59,10 +59,10 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl, onPressStart }) => {
 
       {address && (
         <button
-          class="w-24 md:w-48 lg:w-80 xl:w-120 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-s lg:text-xl xl:text-xl md:text-xl"
+          class="w-40 md:w-48 lg:w-80 xl:w-120 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-s lg:text-xl xl:text-xl md:text-xl"
           onClick={() => onPressStart()}
         >
-          start game
+          Start Game
         </button>
       )}
     </div>

@@ -38,23 +38,23 @@ const GameOverMenu = ({ playerNftUrl, score, onShowMenu, onPressStart }) => {
   }, [address, playerNftUrl, score])
 
   return (
-    <div class="absolute bg-white m-auto top-0 bottom-0 right-0 left-0 w-4/5 h-5/6 flex flex-col rounded-3xl items-center justify-around drop-shadow-2xl lg:w-3/5 xl:w-3/5 md:-3/5">
-      <h1 class="font-semibold text-s lg:text-5xl xl:text-5xl md:text-5xl">
+    <div class="p-6 bg-white m-50 flex flex-col rounded-3xl items-center justify-around drop-shadow-2xl space-y-5">
+      <h1 class="font-semibold text-4xl lg:text-7xl xl:text-7xl md:text-7xl">
         Game Over
       </h1>
       <div class="space-y-3 flex-col flex items-center">
         {isHighScore && (
-          <h1 class="font-semibold text-s lg:text-5xl xl:text-5xl md:text-5xl">
+          <h1 class="font-semibold text-xl lg:text-5xl xl:text-5xl md:text-5xl">
             New High Score:
           </h1>
         )}
         {!isHighScore && (
-          <h1 class=" font-semibold text-s lg:text-5xl xl:text-5xl md:text-5xl">
+          <h1 class=" font-semibold text-xl lg:text-5xl xl:text-5xl md:text-5xl">
             Score:
           </h1>
         )}
         <h1
-          class={`text-xl lg:text-6xl xl:text-6xl md:text-6xl  font-bold ${
+          class={`text-2xl lg:text-6xl xl:text-6xl md:text-6xl  font-bold ${
             isHighScore ? 'text-green-500 text-xl' : ''
           }`}
         >
@@ -63,15 +63,15 @@ const GameOverMenu = ({ playerNftUrl, score, onShowMenu, onPressStart }) => {
       </div>
       <Leaderboard address={address} />
 
-      <div class="space-x-3">
+      <div class="space-x-3 flex flex-row">
         <button
-          class="w-16 md:w-48 lg:w-80 xl:w-120 bg-gray-500 hover:bg-gray-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-s lg:text-xl xl:text-xl md:text-xl"
+          class="w-36 md:w-48 lg:w-64 xl:w-64 bg-gray-500 hover:bg-gray-700 text-white font-semibold drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-md lg:text-xl xl:text-xl md:text-xl"
           onClick={onShowMenu}
         >
           Main Menu
         </button>
         <button
-          class="w-16 md:w-48 lg:w-80 xl:w-120 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-s lg:text-xl xl:text-xl md:text-xl"
+          class=" w-36 md:w-48 lg:w-64 xl:w-64 bg-blue-500 hover:bg-blue-700 text-white font-semibold drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-md lg:text-xl xl:text-xl md:text-xl"
           onClick={onPressStart}
         >
           Play Again
