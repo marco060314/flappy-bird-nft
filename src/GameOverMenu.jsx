@@ -38,13 +38,25 @@ const GameOverMenu = ({ playerNftUrl, score, onShowMenu, onPressStart }) => {
   }, [address, playerNftUrl, score])
 
   return (
-    <div class="absolute bg-white m-auto top-0 bottom-0 right-0 left-0 w-3/5 h-4/5 flex flex-col rounded-3xl items-center justify-around drop-shadow-2xl">
-      <h1 class="text-6xl font-semibold">Game Over</h1>
+    <div class="absolute bg-white m-auto top-0 bottom-0 right-0 left-0 w-4/5 h-5/6 flex flex-col rounded-3xl items-center justify-around drop-shadow-2xl lg:w-3/5 xl:w-3/5 md:-3/5">
+      <h1 class="font-semibold text-s lg:text-5xl xl:text-5xl md:text-5xl">
+        Game Over
+      </h1>
       <div class="space-y-3 flex-col flex items-center">
-        {isHighScore && <h1 class="text-4xl font-semibold">New High Score:</h1>}
-        {!isHighScore && <h1 class="text-4xl font-semibold">Score:</h1>}
+        {isHighScore && (
+          <h1 class="font-semibold text-s lg:text-5xl xl:text-5xl md:text-5xl">
+            New High Score:
+          </h1>
+        )}
+        {!isHighScore && (
+          <h1 class=" font-semibold text-s lg:text-5xl xl:text-5xl md:text-5xl">
+            Score:
+          </h1>
+        )}
         <h1
-          class={`text-8xl  font-bold ${isHighScore ? 'text-green-500' : ''}`}
+          class={`text-xl lg:text-6xl xl:text-6xl md:text-6xl  font-bold ${
+            isHighScore ? 'text-green-500 text-xl' : ''
+          }`}
         >
           {score}
         </h1>
@@ -53,13 +65,13 @@ const GameOverMenu = ({ playerNftUrl, score, onShowMenu, onPressStart }) => {
 
       <div class="space-x-3">
         <button
-          class="w-16 md:w-48 lg:w-80 xl:w-120 bg-gray-500 hover:bg-gray-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-xl"
+          class="w-16 md:w-48 lg:w-80 xl:w-120 bg-gray-500 hover:bg-gray-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-s lg:text-xl xl:text-xl md:text-xl"
           onClick={onShowMenu}
         >
-          Go Back to Main Menu
+          Main Menu
         </button>
         <button
-          class="w-16 md:w-48 lg:w-80 xl:w-120 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-xl"
+          class="w-16 md:w-48 lg:w-80 xl:w-120 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-5 px-5 drop-shadow-2xl border border-blue-500 hover:border-black rounded-lg text-s lg:text-xl xl:text-xl md:text-xl"
           onClick={onPressStart}
         >
           Play Again

@@ -20,15 +20,17 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl, onPressStart }) => {
   }
 
   return (
-    <div class="absolute bg-white m-auto top-0 bottom-0 right-0 left-0 w-3/5 h-4/5 flex flex-col rounded-3xl items-center justify-around drop-shadow-2xl">
+    <div class="absolute bg-white m-auto top-0 bottom-0 right-0 left-0 w-4/5 h-5/6 flex flex-col rounded-3xl items-center justify-around drop-shadow-2xl lg:w-3/5 xl:w-3/5 md:-3/5">
       <div class="flex-col md:flex-row lg:flex-row xl:flex-row">
-        <ConnectButton />
+        <ConnectButton class="items-right" />
         <h1 class="text-5xl font-bold">flappy nft</h1>
       </div>
 
-      <h3 class="text-xl">controls: space/click to jump</h3>
+      <h3 class="text-s lg:text-xl xl:text-xl md:text-xl">
+        controls: space/click to jump
+      </h3>
 
-      <div class="flex flex-col bg-slate-200 rounded-2xl p-5 gap-3 drop-shadow-2xl items-center">
+      <div class="flex flex-col bg-slate-200 rounded-2xl p-5 gap-3 drop-shadow-2xl items-center text-s lg:text-xl xl:text-xl md:text-xl">
         {!address && <h1>Connect Wallet to select NFT</h1>}
         {playerNftUrl && address && (
           <img

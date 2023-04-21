@@ -29,7 +29,9 @@ const Leaderboard = ({ address }) => {
 
   return (
     <div class="">
-      <h1 class="text-center text-4xl font-semibold py-3">Leaderboard</h1>
+      <h1 class="text-center text-s lg:text-xl xl:text-xl md:text-xl font-semibold py-3">
+        Leaderboard
+      </h1>
       <table class="table-auto">
         <thead class="flex-row flex border-2 px-2">
           <th class="font-semibold">Rank</th>
@@ -65,7 +67,7 @@ const LeaderboardItem = ({ player, isCurrentPlayer, rank }) => {
   return (
     <tr
       key={player.address}
-      class={`items-center pl-3 text-center gap-x-10 text-xl flex-row flex border-slate-200 border-x-2 border-b-2 ${
+      class={`items-center pl-3 text-center gap-x-10 text-s lg:text-xl xl:text-xl md:text-xl flex-row flex border-slate-200 border-x-2 border-b-2 ${
         isCurrentPlayer ? ' font-bold bg-slate-200' : ''
       }`}
     >
