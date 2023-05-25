@@ -21,7 +21,7 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl, onPressStart }) => {
 
   return (
     <div class="absolute bg-white m-auto top-0 bottom-0 right-0 left-0 w-4/5 h-5/6 flex flex-col rounded-3xl items-center justify-around drop-shadow-2xl lg:w-3/5 xl:w-3/5 md:-3/5">
-      <div class="justify-center flex-col items-center bg-red-200">
+      <div class="justify-center flex-col items-center">
         <ConnectButton />
         <h1 class="text-5xl font-bold">flappy nft</h1>
       </div>
