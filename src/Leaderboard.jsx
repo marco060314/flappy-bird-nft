@@ -28,7 +28,7 @@ const Leaderboard = ({ address }) => {
   )
 
   return (
-    <div class="">
+    <div>
       <h1 class="text-center text-2xl lg:text-4xl xl:text-4xl md:text-4xl font-semibold py-3">
         Leaderboard
       </h1>

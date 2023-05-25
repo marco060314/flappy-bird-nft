@@ -10,6 +10,7 @@ const Game = ({ playerNftUrl, onGameOver }) => {
       global: false,
       canvas: canvasRef.current,
     })
+
     k.loadSprite('player', playerNftUrl)
     k.loadSprite('bg', 'https://i.postimg.cc/L8sp7KVp/bg.png')
     k.loadSprite('pipe', 'https://i.postimg.cc/Bnw0fYh1/pipe.png')

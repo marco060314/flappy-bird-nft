@@ -3,6 +3,7 @@ import * as React from 'react'
 import Menu from './Menu'
 import GameOverMenu from './GameOverMenu'
 import Game from './Game'
+import Background from './sprites/bg.png'
 
 window.Buffer = window.Buffer || require('buffer').Buffer
 
@@ -14,7 +15,7 @@ const GameState = {
 
 const App = () => {
   const [playerNftUrl, setPlayerNftUrl] = React.useState(
-    'https://i.postimg.cc/hPTxj27d/flap.png'
+    'https://flappy-bird-nft.vercel.app/flap.png'
   )
   const [currentGameState, setCurrentGameState] = React.useState(GameState.Menu)
   const [score, setScore] = React.useState(0)
@@ -24,7 +25,7 @@ const App = () => {
       style={{
         width: '100vw',
         height: '100vh',
-        backgroundImage: 'url(https://i.postimg.cc/L8sp7KVp/bg.png)',
+        backgroundImage: `url(${Background})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% 100%',
       }}
