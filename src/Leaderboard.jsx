@@ -29,7 +29,7 @@ const Leaderboard = ({ address }) => {
 
   return (
     <div>
-      <h1 class="text-center text-2xl lg:text-4xl xl:text-4xl md:text-4xl font-semibold py-3">
+      <h1 class="text-center text-2xl lg:text-3xl xl:text-3xl md:text-3xl font-semibold py-3">
         Leaderboard
       </h1>
       <table class="border-separate border-spacing-2 border border-slate-200">

@@ -39,17 +39,17 @@ const GameOverMenu = ({ playerNftUrl, score, onShowMenu, onPressStart }) => {
 
   return (
     <div class="p-6 bg-white m-50 flex flex-col rounded-3xl items-center justify-around drop-shadow-2xl space-y-5">
-      <h1 class="font-semibold text-4xl lg:text-7xl xl:text-7xl md:text-7xl">
+      <h1 class="font-semibold text-4xl lg:text-5xl xl:text-5xl md:text-5xl">
         Game Over
       </h1>
       <div class="space-y-3 flex-col flex items-center">
         {isHighScore && (
-          <h1 class="font-semibold text-xl lg:text-5xl xl:text-5xl md:text-5xl">
+          <h1 class="font-semibold text-xl lg:text-3xl xl:text-3xl md:text-3xl">
             New High Score:
           </h1>
         )}
         {!isHighScore && (
-          <h1 class=" font-semibold text-xl lg:text-5xl xl:text-5xl md:text-5xl">
+          <h1 class=" font-semibold text-xl lg:text-3xl xl:text-3xl md:text-3xl">
             Score:
           </h1>
         )}
