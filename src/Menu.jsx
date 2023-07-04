@@ -28,7 +28,6 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl, onPressStart }) => {
       <h3 class="text-s lg:text-xl xl:text-xl md:text-xl">
         controls: space/click to jump
       </h3>
-      k
       {playerNftUrl && address && (
         <div class="flex flex-col bg-slate-200 rounded-2xl p-5 gap-3 drop-shadow-2xl items-center text-s lg:text-xl xl:text-xl md:text-xl">
           <img

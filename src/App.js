@@ -30,7 +30,7 @@ const App = () => {
         backgroundSize: '100% 100%',
       }}
     >
-      {currentGameState === GameState.Game && (
+      {currentGameState === GameState.Game && ( 
         <Game
           playerNftUrl={playerNftUrl}
           onGameOver={(newScore) => {
