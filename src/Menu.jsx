@@ -23,7 +23,7 @@ const Menu = ({ playerNftUrl, setPlayerNftUrl, onPressStart }) => {
     <div class="absolute bg-white m-auto top-0 bottom-0 right-0 left-0 w-4/5 h-5/6 flex flex-col rounded-3xl items-center justify-around drop-shadow-2xl lg:w-3/5 xl:w-3/5 md:-3/5">
       <div class="flex-col justify-center">
         <ConnectButton />
-        <h1 class="text-5xl font-bold">flappy nft</h1>
+        <h1 class="text-5xl font-bold">Flappy NFT</h1>
       </div>
       <h3 class="text-s lg:text-xl xl:text-xl md:text-xl">
         controls: space/click to jump
