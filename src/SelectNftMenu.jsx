@@ -12,7 +12,7 @@ const SelectNftMenu = ({ onSelectNft }) => {
         method: 'GET',
         headers: {
           Accept: 'application/json',
-          'X-API-Key': '6c2e3353309f42c6b723af7985424d05',
+          'X-API-Key': '21853e2fc7d04369add9803676bcc3d5',
         },
       }
       const res = await fetch(
